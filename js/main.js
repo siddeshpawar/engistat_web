@@ -79,7 +79,9 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
 
-interestForm.addEventListener('submit', (e) => {
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // Replace with your key from web3forms.com
+
+interestForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const phone = phoneInput.value.trim();
     if (phone.length !== 10 || !/^\d{10}$/.test(phone)) {
@@ -87,10 +89,36 @@ interestForm.addEventListener('submit', (e) => {
         setTimeout(() => phoneInput.style.borderColor = '', 1500);
         return;
     }
-    // Here you'd send to your backend/form service
-    console.log(`Interest: ${activeProject?.name} | Phone: +91${phone}`);
-    closeModal();
-    showToast('✓ Thank you! We\'ll call you back shortly.');
+
+    const submitBtn = interestForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+                access_key: WEB3FORMS_KEY,
+                subject: `New Interest: ${activeProject?.name}`,
+                from_name: 'Engistat Website',
+                message: `New interest received!\n\nProject: ${activeProject?.name}\nLocation: ${activeProject?.location}\nPhone: +91${phone}\nTime: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`
+            })
+        });
+        const data = await res.json();
+        if (data.success) {
+            closeModal();
+            showToast('✓ Thank you! We\'ll call you back shortly.');
+        } else {
+            showToast('Something went wrong. Please try again.');
+        }
+    } catch {
+        showToast('Something went wrong. Please try again.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+        phoneInput.value = '';
+    }
 });
 
 // Init

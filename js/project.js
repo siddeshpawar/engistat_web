@@ -130,17 +130,46 @@ function showToast(msg) {
 }
 
 // ── CTA Form ──
-document.getElementById('ctaForm').addEventListener('submit', (e) => {
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // Replace with your key from web3forms.com
+
+document.getElementById('ctaForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const phone = document.getElementById('ctaPhone').value.trim();
+    const phoneEl = document.getElementById('ctaPhone');
+    const phone = phoneEl.value.trim();
     if (phone.length !== 10 || !/^\d{10}$/.test(phone)) {
-        document.getElementById('ctaPhone').style.outline = '2px solid red';
-        setTimeout(() => document.getElementById('ctaPhone').style.outline = '', 1500);
+        phoneEl.style.outline = '2px solid red';
+        setTimeout(() => phoneEl.style.outline = '', 1500);
         return;
     }
-    console.log(`Interest: ${project.name} | Phone: +91${phone}`);
-    document.getElementById('ctaPhone').value = '';
-    showToast('✓ Thank you! We\'ll call you back shortly.');
+
+    const submitBtn = document.getElementById('ctaForm').querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+                access_key: WEB3FORMS_KEY,
+                subject: `Callback Request: ${project.name}`,
+                from_name: 'Engistat Website',
+                message: `Callback request received!\n\nProject: ${project.name}\nLocation: ${project.location}\nPhone: +91${phone}\nTime: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`
+            })
+        });
+        const data = await res.json();
+        if (data.success) {
+            phoneEl.value = '';
+            showToast('✓ Thank you! We\'ll call you back shortly.');
+        } else {
+            showToast('Something went wrong. Please try again.');
+        }
+    } catch {
+        showToast('Something went wrong. Please try again.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request a Callback';
+    }
 });
 
 // ── Init ──
