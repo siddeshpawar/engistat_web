@@ -33,7 +33,7 @@ function renderProjects() {
                     ${p.amenities.length > 4 ? `<span class="amenity-tag">+${p.amenities.length - 4} more</span>` : ''}
                 </div>
                 <div class="card-cta">
-                    <a href="project.html?id=${p.id}" class="btn-primary">View Details</a>
+                    <a href="${p.id}.html" class="btn-primary">View Details</a>
                     <button class="btn-secondary" onclick="openModal('${p.id}', event)">Express Interest</button>
                 </div>
             </div>

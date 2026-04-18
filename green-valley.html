@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Valley Villas — Engistat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <div class="logo-mark">E</div>
+                <span class="brand-name">Engistat</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-back">&#8592; All Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-gallery-section">
+        <div class="gallery-main" id="galleryMain"></div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </section>
+
+    <div class="project-hero-banner">
+        <div class="container">
+            <div class="project-hero-inner">
+                <div>
+                    <p class="project-type-label" id="projectType"></p>
+                    <h1 class="project-title" id="projectTitle"></h1>
+                    <p class="project-location-line" id="projectLocation"></p>
+                    <div class="project-configs" id="projectConfigs"></div>
+                </div>
+                <div class="project-price-block">
+                    <p class="price-label">Starting Price</p>
+                    <p class="price-value" id="projectPrice"></p>
+                    <button class="btn-primary" onclick="document.getElementById('ctaForm').scrollIntoView({behavior:'smooth'})">Request Callback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlights-strip">
+        <div class="container">
+            <div class="highlights-grid" id="highlightsGrid"></div>
+        </div>
+    </div>
+
+    <div class="project-body">
+        <div class="container">
+            <div class="project-layout">
+                <div class="project-info">
+                    <section class="proj-section">
+                        <h2 class="proj-tagline" id="projectTagline"></h2>
+                        <div class="proj-description" id="projectDescription"></div>
+                    </section>
+                    <section class="proj-section">
+                        <h3 class="section-heading">Amenities</h3>
+                        <div class="amenities-grid" id="amenitiesGrid"></div>
+                    </section>
+                    <section class="proj-section">
+                        <h3 class="section-heading">Plans</h3>
+                        <p class="section-sub">Take a look at our meticulously planned layouts</p>
+                        <div class="plan-tabs" id="planTabs"></div>
+                        <div class="plan-cards" id="planCards"></div>
+                    </section>
+                    <section class="proj-section">
+                        <h3 class="section-heading">Explore the Neighbourhood</h3>
+                        <p class="section-sub" id="neighbourhoodIntro"></p>
+                        <div class="neighbourhood-grid" id="neighbourhoodGrid"></div>
+                    </section>
+                    <section class="proj-section">
+                        <h3 class="section-heading">Location</h3>
+                        <div class="map-embed" id="mapEmbed"></div>
+                    </section>
+                    <section class="proj-section">
+                        <h3 class="section-heading">Most Common Queries</h3>
+                        <div class="faq-list" id="faqList"></div>
+                    </section>
+                </div>
+
+                <div class="project-cta-wrap">
+                    <div class="cta-card">
+                        <div class="cta-badge">Now Accepting Interest</div>
+                        <h3 class="cta-project-name" id="ctaProjectName"></h3>
+                        <p class="cta-location" id="ctaLocation"></p>
+                        <div class="cta-divider"></div>
+                        <p class="cta-desc">Leave your number and our team will call you back within 24 hours.</p>
+                        <form class="cta-form" id="ctaForm">
+                            <div class="input-group">
+                                <span class="input-prefix">+91</span>
+                                <input type="tel" id="ctaPhone" placeholder="Your mobile number" maxlength="10" pattern="[0-9]{10}" required>
+                            </div>
+                            <button type="submit" class="btn-submit full">Request a Callback</button>
+                        </form>
+                        <p class="modal-note">We respect your privacy. No spam calls.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="logo-mark small">E</div>
+                    <span>Engistat</span>
+                </div>
+                <p class="footer-copy">&copy; 2025 Engistat. All rights reserved.</p>
+                <a href="mailto:info@engistat.com" class="footer-email">info@engistat.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script>window.PROJECT_ID = 'green-valley';</script>
+    <script src="js/data.js"></script>
+    <script src="js/project.js"></script>
+</body>
+</html>

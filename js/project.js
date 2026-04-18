@@ -1,7 +1,7 @@
 // Project Detail Page — Load project by ?id= param
 
 const params = new URLSearchParams(window.location.search);
-const projectId = params.get('id');
+const projectId = window.PROJECT_ID || params.get('id');
 const project = PROJECTS.find(p => p.id === projectId);
 
 if (!project) { window.location.href = 'index.html'; }
