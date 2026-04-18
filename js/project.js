@@ -130,7 +130,7 @@ function showToast(msg) {
 }
 
 // ── CTA Form ──
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // Replace with your key from web3forms.com
+const WEB3FORMS_KEY = '7ff0227a-86f5-447d-bdf9-742c89bf5ddd';
 
 document.getElementById('ctaForm').addEventListener('submit', async (e) => {
     e.preventDefault();
