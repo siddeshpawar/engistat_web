@@ -3,64 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engistat - Building Society</title>
+    <title>Engistat — Real Estate Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Starfield Background -->
-    <div class="starfield" id="starfield"></div>
-    
-    <!-- Navigation Header -->
+
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="brand">
-                <div class="logo">
-                    <span class="logo-e">E</span>
-                </div>
-                <h1 class="brand-name">Engistat</h1>
+                <div class="logo-mark">E</div>
+                <span class="brand-name">Engistat</span>
             </div>
+            <nav class="nav">
+                <a href="mailto:info@engistat.com" class="nav-contact">Contact Us</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h2 class="hero-title">Let's Help in Building the Society</h2>
-                <div class="hero-subtitle">Innovating for a Better Tomorrow</div>
-            </div>
-        </section>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <p class="hero-label">Our Projects</p>
+            <h1 class="hero-title">Building Better Communities</h1>
+            <p class="hero-sub">Explore our curated portfolio of residential and commercial developments.</p>
+        </div>
+    </section>
 
-        <!-- Product Section -->
-        <section class="product-section">
-            <div class="container">
-                <div class="section-title">Launching Soon</div>
-                <p class="product-description">One of the products we are launching soon to revolutionize the industry</p>
-                <div class="launch-status">
-                    <div class="status-indicator"></div>
-                    <div class="status-text">In Development</div>
-                </div>
+    <!-- Projects Grid -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Populated by JS -->
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact-section">
-            <div class="container">
-                <div class="section-title">Get In Touch</div>
-                <p class="contact-text">To get in touch with us - mail us on</p>
-                <a href="mailto:info@engistat.com" class="email-link">info@engistat.com</a>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Engistat. Building a better society together.</p>
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="logo-mark small">E</div>
+                    <span>Engistat</span>
+                </div>
+                <p class="footer-copy">&copy; 2025 Engistat. All rights reserved.</p>
+                <a href="mailto:info@engistat.com" class="footer-email">info@engistat.com</a>
+            </div>
         </div>
     </footer>
 
-    <script src="js/animations.js"></script>
+    <!-- Express Interest Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-badge">Limited Units Available</div>
+            <h2 class="modal-title">Express Interest</h2>
+            <p class="modal-project-name" id="modalProjectName"></p>
+            <p class="modal-desc">Leave your number and our team will call you back within 24 hours.</p>
+            <form class="modal-form" id="interestForm">
+                <div class="input-group">
+                    <span class="input-prefix">+91</span>
+                    <input type="tel" id="phoneInput" placeholder="Enter your mobile number" maxlength="10" pattern="[0-9]{10}" required>
+                </div>
+                <button type="submit" class="btn-submit">Request Callback</button>
+            </form>
+            <p class="modal-note">We respect your privacy. No spam calls.</p>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project — Engistat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="brand">
+                <div class="logo-mark">E</div>
+                <span class="brand-name">Engistat</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-back">&#8592; All Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Hero / Gallery -->
+    <section class="project-gallery-section">
+        <div class="gallery-main" id="galleryMain">
+            <div class="gallery-placeholder">Loading...</div>
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-body">
+        <div class="container">
+            <div class="project-layout">
+
+                <!-- Left: Main Info -->
+                <div class="project-info">
+                    <p class="project-type-label" id="projectType"></p>
+                    <h1 class="project-title" id="projectTitle"></h1>
+
+                    <!-- Location -->
+                    <div class="info-block">
+                        <div class="info-icon">&#128205;</div>
+                        <div>
+                            <p class="info-label">Location</p>
+                            <p class="info-value" id="projectLocation"></p>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-embed" id="mapEmbed"></div>
+
+                    <!-- Amenities -->
+                    <div class="amenities-section">
+                        <h3 class="section-heading">Amenities</h3>
+                        <div class="amenities-grid" id="amenitiesGrid"></div>
+                    </div>
+
+                    <!-- About -->
+                    <div class="about-section">
+                        <h3 class="section-heading">About the Project</h3>
+                        <p class="about-text" id="projectAbout"></p>
+                    </div>
+                </div>
+
+                <!-- Right: CTA Sticky Card -->
+                <div class="project-cta-wrap">
+                    <div class="cta-card" id="ctaCard">
+                        <div class="cta-badge">Now Accepting Interest</div>
+                        <h3 class="cta-project-name" id="ctaProjectName"></h3>
+                        <p class="cta-location" id="ctaLocation"></p>
+                        <div class="cta-divider"></div>
+                        <p class="cta-desc">Interested in this project? Leave your number and we'll call you back.</p>
+                        <form class="cta-form" id="ctaForm">
+                            <div class="input-group">
+                                <span class="input-prefix">+91</span>
+                                <input type="tel" id="ctaPhone" placeholder="Your mobile number" maxlength="10" pattern="[0-9]{10}" required>
+                            </div>
+                            <button type="submit" class="btn-submit full">Request a Callback</button>
+                        </form>
+                        <p class="modal-note">We respect your privacy. No spam calls.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="logo-mark small">E</div>
+                    <span>Engistat</span>
+                </div>
+                <p class="footer-copy">&copy; 2025 Engistat. All rights reserved.</p>
+                <a href="mailto:info@engistat.com" class="footer-email">info@engistat.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div class="toast" id="toast">
+        <span>&#10003;</span> Thank you! We'll call you back soon.
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/project.js"></script>
+</body>
+</html>
