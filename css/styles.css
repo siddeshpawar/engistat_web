@@ -585,10 +585,238 @@ body {
 }
 .footer-email:hover { color: #fff; }
 
+/* ── Project Hero Banner ── */
+.project-hero-banner {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 0;
+}
+.project-hero-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.project-location-line {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+.project-configs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.config-tag {
+    background: #f0ece6;
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+.project-price-block {
+    text-align: right;
+    flex-shrink: 0;
+}
+.price-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+.price-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+/* ── Highlights Strip ── */
+.highlights-strip {
+    background: var(--text);
+    padding: 32px 0;
+}
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+.highlight-item {
+    text-align: center;
+    padding: 16px 20px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+.highlight-item:last-child { border-right: none; }
+.highlight-icon { font-size: 24px; margin-bottom: 8px; }
+.highlight-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.highlight-unit {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Project Sections ── */
+.proj-section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+}
+.proj-section:last-child { border-bottom: none; }
+.proj-tagline {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 24px;
+    color: var(--text);
+    max-width: 700px;
+}
+.desc-para {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+.desc-para:last-child { margin-bottom: 0; }
+.section-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+/* ── Floor Plans ── */
+.plan-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.plan-tab {
+    padding: 8px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    font-family: inherit;
+}
+.plan-tab.active, .plan-tab:hover {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+}
+.plan-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+}
+.plan-icon { font-size: 40px; }
+.plan-info { flex: 1; }
+.plan-name { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+.plan-area { font-size: 14px; color: var(--text-muted); }
+.plan-cta {
+    background: var(--text);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+.plan-cta:hover { background: #333; }
+
+/* ── Neighbourhood ── */
+.neighbourhood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+.neighbour-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+.neighbour-place { font-size: 13px; font-weight: 500; color: var(--text); }
+.neighbour-time {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-dark);
+    white-space: nowrap;
+    background: #fff4e6;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* ── FAQ ── */
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+.faq-item {
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 4px;
+    font-size: 15px;
+    font-weight: 500;
+    gap: 16px;
+}
+.faq-arrow {
+    font-size: 16px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+.faq-answer {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 4px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-answer.open {
+    max-height: 200px;
+    padding: 0 4px 18px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
     .project-layout { grid-template-columns: 1fr; }
     .project-cta-wrap { position: static; }
+    .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+    .highlight-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
 }
 @media (max-width: 768px) {
     .container { padding: 0 20px; }
@@ -597,9 +825,15 @@ body {
     .gallery-main { height: 280px; }
     .project-title { font-size: 30px; }
     .footer-inner { flex-direction: column; text-align: center; }
+    .project-hero-inner { flex-direction: column; }
+    .project-price-block { text-align: left; }
+    .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+    .plan-card { flex-wrap: wrap; }
 }
 @media (max-width: 480px) {
     .hero { padding: 50px 0 40px; }
     .hero-title { font-size: 28px; }
     .modal { padding: 28px 20px; }
+    .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+    .proj-tagline { font-size: 22px; }
 }

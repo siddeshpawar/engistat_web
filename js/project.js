@@ -4,29 +4,26 @@ const params = new URLSearchParams(window.location.search);
 const projectId = params.get('id');
 const project = PROJECTS.find(p => p.id === projectId);
 
-if (!project) {
-    window.location.href = 'index.html';
-}
+if (!project) { window.location.href = 'index.html'; }
 
-// Set page title
 document.title = `${project.name} — Engistat`;
 
-// Gallery
+// ── Gallery ──
 let activeThumb = 0;
-const galleryMain = document.getElementById('galleryMain');
-const galleryThumbs = document.getElementById('galleryThumbs');
 
 function renderGallery() {
-    // Main image
     const current = project.media[activeThumb];
-    galleryMain.innerHTML = `<div class="gallery-placeholder-main">${current.icon}</div>`;
+    const mainContent = current.type === 'image'
+        ? `<img src="${current.src}" alt="${current.label}">`
+        : `<div class="gallery-placeholder-main">${current.icon}</div>`;
+    document.getElementById('galleryMain').innerHTML = mainContent;
 
-    // Thumbnails
-    galleryThumbs.innerHTML = project.media.map((m, i) => `
-        <div class="gallery-thumb ${i === activeThumb ? 'active' : ''}" onclick="setThumb(${i})">
-            ${m.icon}
-        </div>
-    `).join('');
+    document.getElementById('galleryThumbs').innerHTML = project.media.map((m, i) => {
+        const inner = m.type === 'image'
+            ? `<img src="${m.src}" alt="${m.label}">`
+            : m.icon;
+        return `<div class="gallery-thumb ${i === activeThumb ? 'active' : ''}" onclick="setThumb(${i})">${inner}</div>`;
+    }).join('');
 }
 
 function setThumb(index) {
@@ -34,30 +31,29 @@ function setThumb(index) {
     renderGallery();
 }
 
-// Project Info
+// ── Hero Banner ──
 document.getElementById('projectType').textContent = project.type;
 document.getElementById('projectTitle').textContent = project.name;
-document.getElementById('projectLocation').textContent = project.location;
-document.getElementById('projectAbout').textContent = project.about;
+document.getElementById('projectLocation').innerHTML = `📍 ${project.location}`;
+document.getElementById('projectPrice').textContent = project.priceRange;
+document.getElementById('projectConfigs').innerHTML = project.configs
+    .map(c => `<span class="config-tag">${c}</span>`).join('');
 
-// CTA Card
-document.getElementById('ctaProjectName').textContent = project.name;
-document.getElementById('ctaLocation').innerHTML = `📍 ${project.location}`;
+// ── Highlights ──
+document.getElementById('highlightsGrid').innerHTML = project.highlights.map(h => `
+    <div class="highlight-item">
+        <div class="highlight-icon">${h.icon}</div>
+        <div class="highlight-value">${h.value}</div>
+        <div class="highlight-unit">${h.unit}</div>
+    </div>
+`).join('');
 
-// Map
-document.getElementById('mapEmbed').innerHTML = `
-    <iframe
-        src="${project.mapEmbed}"
-        width="100%"
-        height="320"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-`;
+// ── Description ──
+document.getElementById('projectTagline').textContent = project.tagline;
+document.getElementById('projectDescription').innerHTML = project.description
+    .map(p => `<p class="desc-para">${p}</p>`).join('');
 
-// Amenities
+// ── Amenities ──
 document.getElementById('amenitiesGrid').innerHTML = project.amenities.map(a => `
     <div class="amenity-item">
         <span class="amenity-icon">${a.icon}</span>
@@ -65,7 +61,67 @@ document.getElementById('amenitiesGrid').innerHTML = project.amenities.map(a => 
     </div>
 `).join('');
 
-// Toast helper
+// ── Floor Plans ──
+let activePlan = 0;
+function renderPlans() {
+    document.getElementById('planTabs').innerHTML = project.floorPlans.map((p, i) => `
+        <button class="plan-tab ${i === activePlan ? 'active' : ''}" onclick="setPlan(${i})">${p.label}</button>
+    `).join('');
+
+    const plan = project.floorPlans[activePlan];
+    document.getElementById('planCards').innerHTML = `
+        <div class="plan-card">
+            <div class="plan-icon">${plan.icon}</div>
+            <div class="plan-info">
+                <div class="plan-name">${plan.name}</div>
+                <div class="plan-area">${plan.area}</div>
+            </div>
+            <button class="plan-cta" onclick="document.getElementById('ctaForm').scrollIntoView({behavior:'smooth'})">Get Floor Plan</button>
+        </div>
+    `;
+}
+function setPlan(i) { activePlan = i; renderPlans(); }
+
+// ── Neighbourhood ──
+document.getElementById('neighbourhoodIntro').innerHTML =
+    `${project.name} is located at ${project.location}, offering excellent connectivity to key landmarks.`;
+document.getElementById('neighbourhoodGrid').innerHTML = project.neighbourhood.map(n => `
+    <div class="neighbour-item">
+        <div class="neighbour-place">📍 ${n.place}</div>
+        <div class="neighbour-time">${n.time}</div>
+    </div>
+`).join('');
+
+// ── Map ──
+document.getElementById('mapEmbed').innerHTML = `
+    <iframe src="${project.mapEmbed}" width="100%" height="360"
+        style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+`;
+
+// ── FAQ ──
+document.getElementById('faqList').innerHTML = project.faq.map((item, i) => `
+    <div class="faq-item" onclick="toggleFaq(${i})">
+        <div class="faq-question">
+            <span>${item.q}</span>
+            <span class="faq-arrow" id="faqArrow${i}">&#8595;</span>
+        </div>
+        <div class="faq-answer" id="faqAnswer${i}">${item.a}</div>
+    </div>
+`).join('');
+
+function toggleFaq(i) {
+    const answer = document.getElementById(`faqAnswer${i}`);
+    const arrow = document.getElementById(`faqArrow${i}`);
+    const isOpen = answer.classList.toggle('open');
+    arrow.innerHTML = isOpen ? '&#8593;' : '&#8595;';
+}
+
+// ── CTA Card ──
+document.getElementById('ctaProjectName').textContent = project.name;
+document.getElementById('ctaLocation').innerHTML = `📍 ${project.location}`;
+
+// ── Toast ──
 function showToast(msg) {
     const toast = document.getElementById('toast');
     toast.textContent = msg;
@@ -73,7 +129,7 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3500);
 }
 
-// CTA Form
+// ── CTA Form ──
 document.getElementById('ctaForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const phone = document.getElementById('ctaPhone').value.trim();
@@ -82,11 +138,11 @@ document.getElementById('ctaForm').addEventListener('submit', (e) => {
         setTimeout(() => document.getElementById('ctaPhone').style.outline = '', 1500);
         return;
     }
-    // Here you'd send to your backend/form service
     console.log(`Interest: ${project.name} | Phone: +91${phone}`);
     document.getElementById('ctaPhone').value = '';
     showToast('✓ Thank you! We\'ll call you back shortly.');
 });
 
-// Init
+// ── Init ──
 renderGallery();
+renderPlans();

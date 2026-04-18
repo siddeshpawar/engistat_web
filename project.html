@@ -14,67 +14,105 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="brand">
+            <a href="index.html" class="brand">
                 <div class="logo-mark">E</div>
                 <span class="brand-name">Engistat</span>
-            </div>
+            </a>
             <nav class="nav">
                 <a href="index.html" class="nav-back">&#8592; All Projects</a>
             </nav>
         </div>
     </header>
 
-    <!-- Project Hero / Gallery -->
+    <!-- Gallery -->
     <section class="project-gallery-section">
-        <div class="gallery-main" id="galleryMain">
-            <div class="gallery-placeholder">Loading...</div>
-        </div>
+        <div class="gallery-main" id="galleryMain"></div>
         <div class="gallery-thumbs" id="galleryThumbs"></div>
     </section>
 
-    <!-- Project Content -->
+    <!-- Project Hero Banner -->
+    <div class="project-hero-banner">
+        <div class="container">
+            <div class="project-hero-inner">
+                <div>
+                    <p class="project-type-label" id="projectType"></p>
+                    <h1 class="project-title" id="projectTitle"></h1>
+                    <p class="project-location-line" id="projectLocation"></p>
+                    <div class="project-configs" id="projectConfigs"></div>
+                </div>
+                <div class="project-price-block">
+                    <p class="price-label">Starting Price</p>
+                    <p class="price-value" id="projectPrice"></p>
+                    <button class="btn-primary" onclick="document.getElementById('ctaForm').scrollIntoView({behavior:'smooth'})">Request Callback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Highlights Strip -->
+    <div class="highlights-strip">
+        <div class="container">
+            <div class="highlights-grid" id="highlightsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <div class="project-body">
         <div class="container">
             <div class="project-layout">
 
-                <!-- Left: Main Info -->
+                <!-- Left Column -->
                 <div class="project-info">
-                    <p class="project-type-label" id="projectType"></p>
-                    <h1 class="project-title" id="projectTitle"></h1>
 
-                    <!-- Location -->
-                    <div class="info-block">
-                        <div class="info-icon">&#128205;</div>
-                        <div>
-                            <p class="info-label">Location</p>
-                            <p class="info-value" id="projectLocation"></p>
-                        </div>
-                    </div>
-
-                    <!-- Map -->
-                    <div class="map-embed" id="mapEmbed"></div>
+                    <!-- About / Description -->
+                    <section class="proj-section">
+                        <h2 class="proj-tagline" id="projectTagline"></h2>
+                        <div class="proj-description" id="projectDescription"></div>
+                    </section>
 
                     <!-- Amenities -->
-                    <div class="amenities-section">
+                    <section class="proj-section">
                         <h3 class="section-heading">Amenities</h3>
                         <div class="amenities-grid" id="amenitiesGrid"></div>
-                    </div>
+                    </section>
 
-                    <!-- About -->
-                    <div class="about-section">
-                        <h3 class="section-heading">About the Project</h3>
-                        <p class="about-text" id="projectAbout"></p>
-                    </div>
+                    <!-- Floor Plans -->
+                    <section class="proj-section">
+                        <h3 class="section-heading">Plans</h3>
+                        <p class="section-sub">Take a look at our meticulously planned layouts</p>
+                        <div class="plan-tabs" id="planTabs"></div>
+                        <div class="plan-cards" id="planCards"></div>
+                    </section>
+
+                    <!-- Neighbourhood -->
+                    <section class="proj-section">
+                        <h3 class="section-heading">Explore the Neighbourhood</h3>
+                        <p class="section-sub" id="neighbourhoodIntro"></p>
+                        <div class="neighbourhood-grid" id="neighbourhoodGrid"></div>
+                    </section>
+
+                    <!-- Map -->
+                    <section class="proj-section">
+                        <h3 class="section-heading">Location</h3>
+                        <div class="map-embed" id="mapEmbed"></div>
+                    </section>
+
+                    <!-- FAQ -->
+                    <section class="proj-section">
+                        <h3 class="section-heading">Most Common Queries</h3>
+                        <div class="faq-list" id="faqList"></div>
+                    </section>
+
                 </div>
 
-                <!-- Right: CTA Sticky Card -->
+                <!-- Right: Sticky CTA -->
                 <div class="project-cta-wrap">
-                    <div class="cta-card" id="ctaCard">
+                    <div class="cta-card">
                         <div class="cta-badge">Now Accepting Interest</div>
                         <h3 class="cta-project-name" id="ctaProjectName"></h3>
                         <p class="cta-location" id="ctaLocation"></p>
                         <div class="cta-divider"></div>
-                        <p class="cta-desc">Interested in this project? Leave your number and we'll call you back.</p>
+                        <p class="cta-desc">Leave your number and our team will call you back within 24 hours.</p>
                         <form class="cta-form" id="ctaForm">
                             <div class="input-group">
                                 <span class="input-prefix">+91</span>
@@ -104,10 +142,8 @@
         </div>
     </footer>
 
-    <!-- Success Toast -->
-    <div class="toast" id="toast">
-        <span>&#10003;</span> Thank you! We'll call you back soon.
-    </div>
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
 
     <script src="js/data.js"></script>
     <script src="js/project.js"></script>
