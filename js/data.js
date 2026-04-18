@@ -1,62 +1,64 @@
 // Project Data — Edit this file to add/update projects
 const PROJECTS = [
     {
-        id: 'sky-residences',
-        name: 'Sky Residences',
+        id: 'lodha-park',
+        name: 'Lodha Park',
         type: 'Residential',
         status: 'new',           // 'new' | 'ongoing' | 'sold'
-        location: 'Bandra West, Mumbai',
-        tagline: 'Of all the privileges of living at Sky Residences, the rarest is the view.',
+        location: 'Worli, Mumbai',
+        tagline: 'An urban oasis in the heart of the city.',
         description: [
-            'A place for those who want more out of life — connected to the city yet untouched by its chaos. Sky Residences is designed for those who want amenities that not only help them relax but also inspire. A residence that promises health, happiness, and absolute well-being.',
-            'Sky Residences is a tapestry of experiences so rich, it would take a lifetime to enjoy all of them. Morning walks on the sky deck, weekend evenings by the pool, dinners with panoramic views — experiences you could never have envisioned are now yours to enjoy in the heart of the city.',
-            'Inspired by the finest global residences, the 50,000 sq. ft. clubhouse is a two-storied jewel featuring world-class facilities. With exceptional interiors, it makes it easy to have a happy mind in a healthy body.'
+            'Of all the privileges of living at Lodha Park, the rarest is living around a 7-acre private park. A place for those who want more out of life, who want to be connected to the city but remain untouched by its chaos.',
+            'Lodha Park is a tapestry of experiences so rich, it would take a lifetime to enjoy all of them. Morning walks by a garden, weekend picnics in the lawns, fruit and vegetables from a private orchard and organic garden — experiences you could never have envisioned, are now yours to enjoy in the heart of the city.',
+            'With several areas for activity, leisure & recreation dotting its vast landscape, Lodha Park creates the perfect ecosystem for its elite residents to meet, socialize, and bond. Picnic spots, garden pavilions, a restaurant, banquet facilities, and a clubhouse — Lodha Park is designed to create a community of like-minded people from diverse professions, where exchanging views is as easy as sharing a cup of coffee.'
         ],
         highlights: [
-            { value: '42', unit: 'Floors', icon: '🏙️' },
+            { value: '7', unit: 'Acre Private Park', icon: '�' },
             { value: '50,000', unit: 'sq. ft. Clubhouse', icon: '🏛️' },
-            { value: '3', unit: 'Swimming Pools', icon: '🏊' },
-            { value: '5', unit: 'acre Podium Garden', icon: '🌳' }
+            { value: '7', unit: 'Swimming Pools', icon: '🏊' },
+            { value: 'Ready', unit: 'To Move In', icon: '�️' }
         ],
-        configs: ['2 BHK', '3 BHK', '4 BHK'],
+        configs: ['2 BHK', '3 BHK', '4 BHK', 'Duplex'],
         priceRange: '₹ 4.5 Cr onwards',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.319!2d72.82366!3d19.0544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9149b7b7dbb%3A0x4c9ca6e30be77910!2sBandra%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1712000000000',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.0!2d72.8177!3d19.0176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce7a98a39381%3A0x89af6c3a5a07b9c9!2sWorli%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1712000000000',
         amenities: [
-            { icon: '🏊', label: 'Infinity Pool' },
-            { icon: '🏋️', label: 'World-class Gym' },
-            { icon: '🌳', label: 'Sky Garden' },
-            { icon: '🚗', label: 'Valet Parking' },
-            { icon: '�', label: 'Banquet Hall' },
-            { icon: '🎮', label: "Kids' Play Zone" },
-            { icon: '🔒', label: '24/7 Security' },
-            { icon: '⚡', label: 'EV Charging' },
-            { icon: '🎾', label: 'Tennis Court' },
-            { icon: '🧘', label: 'Yoga Deck' },
-            { icon: '📚', label: 'Library Lounge' },
-            { icon: '🍽️', label: 'Rooftop Restaurant' }
+            { icon: '🏊', label: '7 Swimming Pools' },
+            { icon: '🏋️', label: 'World-class Gym with Boxing Ring' },
+            { icon: '🌳', label: '7-Acre Private Park' },
+            { icon: '🏛️', label: '50,000 sq.ft. Clubhouse' },
+            { icon: '🎭', label: 'Banquet Facilities' },
+            { icon: '🎮', label: "Kids' Play Area" },
+            { icon: '🏓', label: 'Indoor Games Room' },
+            { icon: '🏸', label: 'Multi-purpose Courts' },
+            { icon: '�️', label: 'Restaurant' },
+            { icon: '🌿', label: 'Organic Garden' },
+            { icon: '�', label: 'Garden Pavilions' },
+            { icon: '🔒', label: '24/7 Security' }
         ],
         floorPlans: [
-            { label: '2 BHK', name: '2 Bed Residence', area: '1,180 sq. ft.', icon: '🛏️' },
-            { label: '3 BHK', name: '3 Bed Residence', area: '1,680 sq. ft.', icon: '🛏️' },
-            { label: '4 BHK', name: '4 Bed Luxury', area: '2,400 sq. ft.', icon: '🛏️' }
+            { label: '2 BHK', name: '2 Bed Residence', area: 'Carpet: 850 sq.ft. · Deck: 80 sq.ft.', icon: '🛏️' },
+            { label: '3 BHK', name: '3 Bed Premium', area: 'Carpet: 1,180 sq.ft. · Deck: 120 sq.ft.', icon: '🛏️' },
+            { label: '4 BHK', name: '4 Bed Luxury', area: 'Carpet: 1,650 sq.ft. · Deck: 180 sq.ft.', icon: '🛏️' },
+            { label: 'Duplex', name: 'Duplex Residence', area: 'Carpet: 2,400 sq.ft. · Deck: 250 sq.ft.', icon: '🛏️' }
         ],
         neighbourhood: [
-            { place: 'Bandra-Worli Sea Link', time: '5 mins' },
+            { place: 'Bandra-Worli Sea Link', time: '20 mins' },
             { place: 'Mumbai International Airport', time: '30 mins' },
-            { place: 'BKC Business District', time: '10 mins' },
-            { place: 'Palladium Mall', time: '15 mins' }
+            { place: 'Peninsula Corporate Park', time: '10 mins' },
+            { place: 'Palladium & High Street Phoenix', time: '05 mins' }
         ],
         faq: [
-            { q: 'What configurations are available at Sky Residences?', a: '2 BHK, 3 BHK, and 4 BHK apartments are available.' },
-            { q: 'What is the total number of floors?', a: 'Sky Residences is a 42-floor tower.' },
-            { q: 'Is the project RERA registered?', a: 'Yes, the project is fully RERA registered and compliant.' },
-            { q: 'What is the possession date?', a: 'Expected possession is December 2026.' }
+            { q: 'What configurations are available at Lodha Park?', a: '2 BHK, 3 BHK, 4 BHK, and Duplex residences are available.' },
+            { q: 'What is the size of the private park?', a: 'Lodha Park features a 7-acre private park — one of the largest in any residential development in the city.' },
+            { q: 'How large is the clubhouse?', a: 'The Jewel clubhouse is 50,000 sq.ft. spread over two storeys at the park level.' },
+            { q: 'Is the project ready to move in?', a: 'Yes, Lodha Park is ready for possession.' },
+            { q: 'Is the project RERA registered?', a: 'Yes, the project is fully RERA registered and compliant.' }
         ],
         media: [
             { type: 'placeholder', icon: '🏙️', label: 'Tower View' },
-            { type: 'placeholder', icon: '🛋️', label: 'Living Room' },
-            { type: 'placeholder', icon: '🌅', label: 'Sea View' },
-            { type: 'placeholder', icon: '🏊', label: 'Pool Deck' }
+            { type: 'placeholder', icon: '🌳', label: 'Private Park' },
+            { type: 'placeholder', icon: '�', label: 'Pool Deck' },
+            { type: 'placeholder', icon: '�️', label: 'Clubhouse' }
         ]
     },
     {
