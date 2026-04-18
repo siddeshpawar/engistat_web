@@ -43,9 +43,14 @@ function renderProjects() {
 
 function openModal(projectId, e) {
     if (e) e.preventDefault();
-    activeProject = PROJECTS.find(p => p.id === projectId);
-    if (!activeProject) return;
-    modalProjectName.textContent = activeProject.name + ' — ' + activeProject.location;
+    if (projectId === '__general__') {
+        activeProject = { name: 'General Inquiry', location: 'Engistat' };
+        modalProjectName.textContent = 'Get in touch with our team';
+    } else {
+        activeProject = PROJECTS.find(p => p.id === projectId);
+        if (!activeProject) return;
+        modalProjectName.textContent = activeProject.name + ' — ' + activeProject.location;
+    }
     phoneInput.value = '';
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -100,9 +105,9 @@ interestForm.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
                 access_key: WEB3FORMS_KEY,
-                subject: `New Interest: ${activeProject?.name}`,
+                subject: activeProject?.name === 'General Inquiry' ? 'New Contact Us Request' : `New Interest: ${activeProject?.name}`,
                 from_name: 'Engistat Website',
-                message: `New interest received!\n\nProject: ${activeProject?.name}\nLocation: ${activeProject?.location}\nPhone: +91${phone}\nTime: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`
+                message: `${activeProject?.name === 'General Inquiry' ? 'General contact request' : 'New project interest'} received!\n\nProject: ${activeProject?.name}\nLocation: ${activeProject?.location}\nPhone: +91${phone}\nTime: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`
             })
         });
         const data = await res.json();
